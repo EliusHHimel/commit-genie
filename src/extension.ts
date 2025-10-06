@@ -57,7 +57,9 @@ Example: feat(auth): add token refresh logic
             const data = (await response.json()) as OpenRouterResponse;
             const message = data.choices?.[0]?.message?.content?.trim();
 
-            if (!message) throw new Error("No response from model");
+            if (!message) {
+              throw new Error("No response from model");
+            }
 
             // Copy to clipboard or open in input box
             await vscode.env.clipboard.writeText(message);
